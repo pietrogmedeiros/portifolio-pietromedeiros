@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-white antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-glass backdrop-blur-md border border-glass-border rounded-2xl p-8;
+  }
+  
+  .tech-tag {
+    @apply text-[10px] uppercase tracking-[0.15em] px-3 py-1.5 bg-white/5 border border-white/10 rounded-sm font-mono text-white/70;
+  }
+}
+
+/* GSAP Specific fixes */
+.hero-container {
+  height: 200vh;
+}
+
+.hero-sticky {
+  @apply sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden bg-black;
+}
+
+.photo-under {
+  @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] md:w-[50%] lg:w-[35%] h-[50%] md:h-[60%] object-cover grayscale;
+}
+
+.photo-over {
+  @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] md:w-[50%] lg:w-[35%] h-[50%] md:h-[60%] object-cover;
+  clip-path: inset(0 0 100% 0);
+}
+
